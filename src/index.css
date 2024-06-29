@@ -1,13 +1,265 @@
-body {
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap");
+
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+/* ----------------------------------------TABLE---------------------------------------------- */
+
+.table-container {
+  width: 100%;
+  padding: 20px;
+}
+
+.user-table {
+  width: 100%;
+  max-width: 100%;
+  border-collapse: collapse;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.user-table th,
+.user-table td {
+  padding: 15px;
+  text-align: left;
+}
+
+.user-table th {
+  background-color: #f4f4f4;
+}
+
+/* .user-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+} */
+
+.user-table td {
+  border-top: 1px solid#f9f9f9;
+}
+.user-table tr:hover {
+  background-color: #f9f9f9;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+}
+
+.user-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.user-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-name {
+  font-weight: 600;
+}
+
+.user-email {
+  font-size: 0.9em;
+  color: #777;
+}
+
+.user-phone,
+.user-country {
+  display: block;
+}
+
+.user-country {
+  font-size: 0.9em;
+  color: #777;
+}
+
+.overflowY {
+  overflow-y: hidden;
+}
+
+@media (max-width: 768px) {
+  .user-table th,
+  .user-table td {
+    padding: 10px;
+    font-size: 0.8em;
+  }
+}
+
+@media (max-width: 480px) {
+  .user-table th,
+  .user-table td {
+    padding: 8px;
+    font-size: 0.8em;
+  }
+
+  .user-avatar {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+/* ----------------------------------------MODAL---------------------------------------------- */
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  /* background: #fff; */
+  background: #f1f1f1;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 50%;
+  padding: 20px;
+  position: relative;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.client-modal-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  /* border-radius: 50%; */
+  border-bottom: 1.5px solid lightgray;
+}
+
+.close-button {
+  background: none;
+  border: none;
+  font-size: 2em;
+  cursor: pointer;
+}
+.close-button:hover {
+  color: #b80c09;
+}
+h2 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+.client-info {
+  display: flex;
+}
+
+.client-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin-right: 20px;
+}
+
+.client-details {
+  flex: 1;
+}
+
+.client-details h3 {
+  margin: 0;
+  padding: 4px 4px;
+  font-size: 1.25em;
+  margin-bottom: 4px;
+}
+
+.client-details p {
+  margin: 5px 0;
+  color: #555;
+}
+.client-details .client-email {
+  background-color: #ececec;
+  padding: 4px 6px;
+  border-radius: 4px;
+}
+
+.contact-info {
+  background-color: #ececec;
+  border-radius: 10px;
+  display: grid;
+  margin-top: 10px;
+  padding: 10px 10px 10px 10px;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+/* ----------------------------------------PAGINATION---------------------------------------------- */
+
+.pagination {
+  justify-content: end;
+}
+
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  margin-top: 20px;
+}
+
+.pagination-button {
+  margin: 0 5px;
+  padding: 5px 10px;
+  background-color: #fff;
+  cursor: pointer;
+  outline: none;
+  border: none;
+}
+
+.pagination-button.active {
+  background-color: #007bff;
+  color: #fff;
+  border-color: #007bff;
+}
+
+.pagination-button:disabled {
+  cursor: not-allowed;
+}
+
+.network-modal {
+  width: 500px;
+  max-width: 500px;
+  border-radius: 10px;
+  padding: 20px;
+  background-color: white;
+}
+
+@media (max-width: 768px) {
+  .modal-content {
+    background: #fff;
+    overflow-y: scroll;
+    height: 400px;
+    font-size: 12px;
+  }
+
+  .client-info {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .client-info i {
+    display: none;
+  }
+
+  .client-avatar {
+    margin-bottom: 10px;
+  }
+  .contact-info {
+    align-items: center;
+  }
+
+  .network-modal {
+    max-width: 300px;
+  }
 }
